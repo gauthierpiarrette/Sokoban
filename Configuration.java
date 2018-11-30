@@ -3,27 +3,25 @@ import javafx.geometry.Pos;
 import java.util.ArrayList;
 
 public class Configuration {
-    private ArrayList<Caisse> caisses;  // Dénote toutes les caisses du niveau
+    private ArrayList<Caisse> caisses = new ArrayList<Caisse>();  // Dénote toutes les caisses du niveau
     private Joueur joueur;
     private Niveau niveau;
 
+
     // Un constructeur qui prend en paramètre le niveau et la position initiale du joueur
     public Configuration(Niveau niveau, Position positionJouer){
-        //TODO: positionJouer initiale ????;
         this.niveau = niveau;
-        joueur.setPosition(positionJouer);
+        joueur = new Joueur(this, positionJouer);
     }
 
     // Un constructeur par copie
-    //TODO: position initiale du jouer aussi ??
     public Configuration(Configuration config){
         this(config.niveau, config.joueur.getPosition());
     }
 
     // Pour placer une nouvelle caisse
     public boolean addCaisse(Position pos){
-        //TODO: check it;
-        caisses.add(new Caisse(this, pos));
+        return caisses.add(new Caisse(this, pos));
     }
 
     // Permettent de connaître la taille du niveau
@@ -35,9 +33,23 @@ public class Configuration {
     /*
     qui permet de renvoyer l’Element à la position en paramètre : le Joueur,
     une Caisse, un Mur ou une Case. C’est cette méthode qui sera principalement utilisée ! Celle de
-    Niveau renvoie uniquement des informations statiques. Celle-ci peut renvoyer toute l’information
+    Niveau renvoie uniquement des informations statiques.
+    Celle-ci peut renvoyer toute l’information
     présente dans la configuration, y compris les élément mobiles ; */
+
     public Element get(Position pos){
+        for (Caisse cai: caisses){
+            if (cai.getPosition().equals(pos)){
+                return Caisse;
+            }
+        }
+
+        if (joueur.getPosition().equals(pos)) {
+            return joueur;
+        }
+
+        if(getNiveau().estCible(pos)){return ;}
+        else{return getNiveau().get(pos);}
     }
 
     public Joueur getJoueur(){return joueur;}
@@ -50,7 +62,6 @@ public class Configuration {
     public boolean estCible(Position pos){return niveau.estCible(pos);}
 
     // Permet de déplacer le joueur (renvoie true en cas de succès)
-    //TODO:
     public boolean bougetJoueurVers(Direction direction){
         if(joueur.bougerVers(direction)){
             return true;
@@ -60,6 +71,7 @@ public class Configuration {
     //Permet de savoir si le joueur a gagné ou pas
     //TODO: Victoire !!
     public boolean victoire(){
+        return true;
     }
 
     public String toString(){
@@ -69,6 +81,7 @@ public class Configuration {
         • Joueur : @, Joueur sur une cible : +                                          ######
         • Caisse : $, Caisse sur une cible : ∗
         */
+        return "";
     }
 
 }

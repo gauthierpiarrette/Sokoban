@@ -11,12 +11,11 @@ public class Niveau {
 
     // Permettent de connaître la taille du niveau
     public int getX(){return grille.length;} // Rows
-    public int getY(){return grille[].length;}  //Columns
+    public int getY(){return grille[0].length;}  //Columns
 
     // Ajoute un mur et renvoie true en cas de succès (pas de mur déjà posé)
-    //TODO: Check it;
     public boolean addMur(Position pos){
-        if (grille[pos.getX()][pos.getY()].getType() == Mur){
+        if (grille[pos.getX()][pos.getY()].getClass().getName() == "Mur"){
             return false;
         }else{
             grille[pos.getX()][pos.getY()] = new Mur();
@@ -24,22 +23,18 @@ public class Niveau {
     }
 
     // Rajoute une cible (succès si la case n’est pas un mur ou ne contient pas déjà une cible) ;
-    //TODO: Check it;
     public boolean addCible(Position pos){
-        if (grille[pos.getX()][pos.getY()].getType() != Mur
-                    && grille[pos.getX()][pos.getY()].getType() == null ){
-
+        if (grille[pos.getX()][pos.getY()].getClass().getName() != "Mur"
+                    && grille[pos.getX()][pos.getY()].getClass().getName() == null ){
             grille[pos.getX()][pos.getY()] = new Case();
             return true;
-
         }else{
             return false;
         }
     }
 
     // Teste si une cible se trouve à la Position passée en paramètre
-    //TODO: Je pense qu'il faut mettre cette méthode static pour le utilisé dans configurations;
-    public static boolean estCible(Position pos){
+    public boolean estCible(Position pos){
         for (int i=0; i<cibles.size(); i++){
             if (pos.equals(cibles.get(i))){return true;}
         }
@@ -47,9 +42,8 @@ public class Niveau {
     }
 
     // Teste si la case ne contient pas de mur
-    //TODO: Check it :: static in order to use in Configuration class !
-    public static boolean estVide(Position pos){
-        if (grille[pos.getX()][pos.getY()].getType() != Mur){
+    public boolean estVide(Position pos){
+        if (grille[pos.getX()][pos.getY()].getClass().getName() != "Mur"){
             return true;
         }else { return false;}
     }
@@ -59,4 +53,7 @@ public class Niveau {
         return grille[pos.getX()][pos.getY()];
     }
 
+    public static ArrayList<Position> getCible(Position pos) {
+        return cibles;
+    }
 }

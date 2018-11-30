@@ -15,9 +15,9 @@ public class Joueur extends Mobile {
     public boolean bougerVers(Direction direction){
         /*
         if (config.estVide(pos.add(direction)) || ){
-
         }
         */
+        return true;
     }
 
     public ArrayList<Direction> getHistoto(){
