@@ -60,6 +60,21 @@ public class Configuration {
     //Permet de savoir si le joueur a gagné ou pas
     //TODO: Victoire !!
     public boolean victoire(){
+        int nb = 0;
+         // On compare la position des caisses et des cibles, si elles sont égales on incrémente nb
+ 		for(Caisse cai: this.caisses){
+ 			for(Position poi:this.niveau.getCibles()){
+ 				if (cai.position.equals(poi)){nb++;}
+ 			}
+ 		}
+    
+         // Si cpt == le nombre de caisse total c'est gagné !
+         if(nb==this.caisses.size()){
+ 			return true;
+ 		}
+         // Sinon c'est perdu
+ 		return false;
+ }
     }
 
     public String toString(){
