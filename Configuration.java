@@ -58,7 +58,6 @@ public class Configuration {
     }
 
     //Permet de savoir si le joueur a gagné ou pas
-    //TODO: Victoire !!
     public boolean victoire(){
         int nb = 0;
          // On compare la position des caisses et des cibles, si elles sont égales on incrémente nb
