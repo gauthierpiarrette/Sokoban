@@ -19,6 +19,7 @@ public class Niveau {
             return false;
         }else{
             grille[pos.getX()][pos.getY()] = new Mur();
+            return true;
         }
     }
 
@@ -53,7 +54,7 @@ public class Niveau {
         return grille[pos.getX()][pos.getY()];
     }
 
-    public static ArrayList<Position> getCible(Position pos) {
-        return cibles;
-    }
+    /*
+    public static ArrayList<Position> getCible(Position pos) { return cibles; }
+    */
 }

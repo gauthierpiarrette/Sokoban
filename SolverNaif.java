@@ -12,6 +12,10 @@ public class SolverNaif implements SolverInterface {
         this.config = config;
     }
 
+    public Configuration getConfiguration(){
+        return config;
+    }
+
     public boolean stop(){
         if (config.victoire()){
             return true;

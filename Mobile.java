@@ -1,6 +1,6 @@
 public abstract class Mobile extends Element{
-    private Configuration config;
-    private Position pos;
+    protected Configuration config;
+    protected Position pos;
 
     public Mobile(Type type, Configuration config, Position pos){
         super(type);
@@ -22,7 +22,7 @@ public abstract class Mobile extends Element{
     //et qui renvoie true si le placement est possible et false sinon.
 
     public boolean setPosition(Position position){
-        if (Niveau.estVide(position)) {
+        if (config.estVide(position)) {
             this.pos = new Position(position);
         }else{return false;}
         return true;

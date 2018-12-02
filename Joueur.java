@@ -13,11 +13,16 @@ public class Joueur extends Mobile {
 
     //TODO: Difficult conditions !! review them carefully
     public boolean bougerVers(Direction direction){
-        /*
-        if (config.estVide(pos.add(direction)) || ){
+        Position next = new Position(this.pos.add(direction));
+        if (config.estVide(pos.add(direction))){
+            this.setPosition(pos.add(direction));
+            return true;
+        }else if (config.get(next) instanceof Caisse && config.estVide(next.add(direction))){
+            next = next.add(direction);
+            this.setPosition(pos.add(direction));
+            return true;
         }
-        */
-        return true;
+        return false;
     }
 
     public ArrayList<Direction> getHistoto(){

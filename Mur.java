@@ -1,6 +1,6 @@
 public class Mur extends Immobile {
     public Mur(){
-        super(MUR);
+        super(Type.MUR);
     }
 
     public boolean bougerVers(Direction direction) {return false;}

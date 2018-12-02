@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Direction {
     // une classe Direction qui permet de modéliser les actions possibles
 
-    private final static Direction GAUCHE  = new Direction(-1, 0);   // (-1, 0)
-    private final static Direction DROITE = new Direction(1, 0);   // (1, 0)
-    private final static Direction HAUT = new Direction(0, -1);   // (0, -1)
-    private final static Direction BAS = new Direction(0, 1);      // (0, 1)
+    public final static Direction GAUCHE  = new Direction(-1, 0);   // (-1, 0)
+    public final static Direction DROITE = new Direction(1, 0);   // (1, 0)
+    public final static Direction HAUT = new Direction(0, -1);   // (0, -1)
+    public final static Direction BAS = new Direction(0, 1);      // (0, 1)
 
     private ArrayList<Direction> DIRECTIONS;
     private int dx;

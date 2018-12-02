@@ -1,5 +1,3 @@
-import javafx.geometry.Pos;
-
 import java.util.ArrayList;
 
 public class Configuration {
@@ -43,13 +41,14 @@ public class Configuration {
                 return Caisse;
             }
         }
-
         if (joueur.getPosition().equals(pos)) {
             return joueur;
         }
-
-        if(getNiveau().estCible(pos)){return ;}
-        else{return getNiveau().get(pos);}
+        if(! this.niveau.estVide(pos)){
+            return Mur;
+        } else{
+            return Case;
+        }
     }
 
     public Joueur getJoueur(){return joueur;}
@@ -71,12 +70,17 @@ public class Configuration {
     //Permet de savoir si le joueur a gagné ou pas
     //TODO: Victoire !!
     public boolean victoire(){
+        for (int i = 0; i < caisses.size(); i++){
+            if (! this.estCible(caisses.get(i).getPosition())){
+                return false;
+            }
+        }
         return true;
     }
 
     public String toString(){
         /* • Mur : #                                                            Un exemple de représentation :
-        • Cible : .                                                             ######
+        • Cible : .                                                                     ######
         • Case : " "                                                                    #@$. #
         • Joueur : @, Joueur sur une cible : +                                          ######
         • Caisse : $, Caisse sur une cible : ∗

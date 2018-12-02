@@ -1,5 +1,3 @@
-import javafx.geometry.Pos;
-
 public class Position {
     private int x;
     private int y;

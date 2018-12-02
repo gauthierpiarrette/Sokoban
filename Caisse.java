@@ -4,7 +4,7 @@ public class Caisse extends Mobile {
     }
 
     public boolean bougerVers(Direction direction) {
-        if (Niveau.estVide(getPosition().add(direction))){
+        if (config.estVide(getPosition().add(direction))){
             setPosition(this.getPosition().add(direction));
         }else{
             return false;
