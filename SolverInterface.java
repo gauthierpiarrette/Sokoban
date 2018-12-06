@@ -6,4 +6,6 @@ public interface SolverInterface {
     public boolean stop();
 
     public int getTotalSteps();
+    
+    public void step();
 }
