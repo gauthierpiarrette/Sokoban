@@ -25,4 +25,27 @@ public class SolverNaif implements SolverInterface {
     public int getTotalSteps(){
         return nbr_steps;
     }
+    
+    public void step() {
+    	
+		int rand = (int)(Math.random()*4);
+		
+		nbr_steps++;
+		
+		switch(rand){
+			case 0:
+				this.config.bougerJoueurVers(Direction.HAUT);
+				break;
+			case 1:
+				this.config.bougerJoueurVers(Direction.BAS);
+				break;
+			case 2:
+				this.config.bougerJoueurVers(Direction.GAUCHE);
+				break;
+			default:
+				this.config.bougerJoueurVers(Direction.DROITE);
+
+		}
+    
+    }
 }
