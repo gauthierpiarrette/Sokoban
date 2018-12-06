@@ -38,18 +38,18 @@ public class Configuration {
     public Element get(Position pos){
         for (Caisse cai: caisses){
             if (cai.getPosition().equals(pos)){
-                return Caisse;
+                return cai;
             }
         }
         if (joueur.getPosition().equals(pos)) {
             return joueur;
         }
-        if(! this.niveau.estVide(pos)){
+/*        if(! this.niveau.estVide(pos)){
             return Mur;
-        } else{
-            return Case;
+        }*/ else{
+            return niveau.get(pos);
         }
-    }
+//    }
 
     public Joueur getJoueur(){return joueur;}
     public ArrayList<Caisse> getCaisses(){return caisses;}
